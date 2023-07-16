@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:modern_login_ui/pages/login_page.dart';
+import 'package:modern_login_ui/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
+    return const MaterialApp(
+      home: AuthPage(),
       debugShowCheckedModeBanner: false,
     );
   }
