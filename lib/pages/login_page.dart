@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:modern_login_ui/components/my_button.dart';
 import 'package:modern_login_ui/components/my_textfield.dart';
 import 'package:modern_login_ui/components/square_tile.dart';
+import 'package:modern_login_ui/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -54,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
       );
 
       //pop dialog circle
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       //pop dialog circle
@@ -166,18 +168,24 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 50),
 
               //google + apple sign in buttons
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //google logo
-                  SquareTile(imagePath: 'lib/images/google-logo.png'),
+                  SquareTile(
+                    imagePath: 'lib/images/google-logo.png',
+                    onTap: () => AuthService().signInWithGoogle(),
+                  ),
 
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
 
                   //apple logo
-                  SquareTile(imagePath: 'lib/images/apple-logo.png'),
+                  SquareTile(
+                    imagePath: 'lib/images/apple-logo.png',
+                    onTap: () {},
+                  ),
                 ],
               ),
 
